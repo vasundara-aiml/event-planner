@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+    <h2>EVENT.COM</h2>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICES</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#price">PRICE</a>
+        <a href="#review">REVIEW</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+    <h3>LET'S PLAN EVENT</h3>
+    <h1>LET'S ORGANIZE EVENTS WITH US ❤</h1>
+
+    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+        START PLANNING
+    </button>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+    <h2>ABOUT US</h2>
+    <div class="about-box">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622">
+
+        <div>
+            <h3>Know Us</h3>
+            <p>
+                We organize weddings, birthdays and corporate events with professional planning and decoration.
+                Our experienced team focuses on creativity, proper management and customer satisfaction.
+                We believe every event should be special and memorable for our clients.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+    <h2>SERVICES</h2>
+
+    <div class="service-box">
+
+        <div class="card">
+            <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+                <h3>Wedding Event</h3>
+            </div>
+            <div class="card-back">
+                <p>Beautiful wedding planning with decoration and stage setup.</p>
+                <div onclick="selectService('Wedding')" class="plan-btn">Plan This Event</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
+                <h3>Birthday Party</h3>
+            </div>
+            <div class="card-back">
+                <p>Creative birthday themes with balloons and fun activities.</p>
+                <div onclick="selectService('Birthday')" class="plan-btn">Plan This Event</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
+                <h3>Corporate Event</h3>
+            </div>
+            <div class="card-back">
+                <p>Professional meetings and company celebrations.</p>
+                <div onclick="selectService('Corporate')" class="plan-btn">Plan This Event</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+                <h3>Concert Event</h3>
+            </div>
+            <div class="card-back">
+                <p>Music concerts with sound system and lighting.</p>
+                <div onclick="selectService('Concert')" class="plan-btn">Plan This Event</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
+    <h2>Gallery</h2>
+
+    <div class="scroll-track">
+        <div class="scroll-content">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+            <img src="https://images.unsplash.com/photo-1606800052052-a08f8b3b3a8e">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
+            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= PRICE ================= -->
+<section id="price" class="calculator-container">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#ff2d86]">
+            INSTANT PRICE CALCULATOR
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl">
+
+                <label>Event Type</label>
+                <select id="eventType">
+                    <option value="50000">Wedding</option>
+                    <option value="25000">Birthday</option>
+                    <option value="40000">Corporate</option>
+                </select>
+
+                <label>Guests</label>
+                <input type="range" id="guests" min="20" max="500" value="100">
+
+                <div>
+                    <label><input type="checkbox" class="addon" data-price="15000"> Decor</label>
+                    <label><input type="checkbox" class="addon" data-price="20000"> DJ</label>
+                </div>
+
+            </div>
+
+            <div>
+                <h3>Your Estimate</h3>
+                <div id="breakdown"></div>
+                <h2 id="totalPrice">₹0</h2>
+
+                <button onclick="bookNow()">Book Now</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+    <h2>Contact Us</h2>
+
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Message"></textarea>
+
+    <button onclick="sendToWhatsApp()">Send</button>
+</section>
+
+<!-- ================= CHATBOT ================= -->
+<div class="chat-float" onclick="toggleChat()">💬</div>
+
+<div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+        <span>Event Assistant</span>
+        <span onclick="toggleChat()">✕</span>
+    </div>
+
+    <div id="chatBody" class="chat-body">
+        <div class="chat-message">Hi 👋 What event?</div>
+    </div>
+
+    <div class="chat-footer">
+        <div onclick="selectOption('Wedding')" class="chat-option">Wedding</div>
+        <div onclick="selectOption('Birthday')" class="chat-option">Birthday</div>
+    </div>
+</div>
+
+<!-- ================= JS ================= -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
