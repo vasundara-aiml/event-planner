@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - EVENT.COM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff2d86, #f2d5b3);
+            font-family: Arial, sans-serif;
+        }
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        .tab-active {
+            border-bottom: 3px solid #ff2d86;
+            color: #ff2d86;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="auth-card w-full max-w-md p-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-[#ff2d86]">EVENT.COM</h1>
+            <p class="text-gray-600 mt-2">Join us to plan beautiful events</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex border-b mb-6">
+            <button onclick="showTab(0)" id="tab-login" 
+                    class="tab-active flex-1 py-3 text-center">Login</button>
+            <button onclick="showTab(1)" id="tab-signup" 
+                    class="flex-1 py-3 text-center text-gray-500">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="loginEmail" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff2d86]"
+                       placeholder="Enter your email" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input type="password" id="loginPassword" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff2d86]"
+                       placeholder="Enter your password" required>
+            </div>
+            <button type="submit" 
+                    class="w-full bg-[#ff2d86] hover:bg-[#e02270] text-white py-3.5 rounded-xl font-semibold transition">
+                Login
+            </button>
+        </form>
+
+        <!-- Sign Up Form (hidden by default) -->
+        <form id="signupForm" class="space-y-6 hidden">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                <input type="text" id="signupName" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff2d86]"
+                       placeholder="Enter your full name" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="signupEmail" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff2d86]"
+                       placeholder="Enter your email" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input type="password" id="signupPassword" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#ff2d86]"
+                       placeholder="Create password" required>
+            </div>
+            <button type="submit" 
+                    class="w-full bg-[#ff2d86] hover:bg-[#e02270] text-white py-3.5 rounded-xl font-semibold transition">
+                Create Account
+            </button>
+        </form>
+
+        <div class="text-center mt-6 text-xs text-gray-500">
+            © 2026 EVENT.COM
+        </div>
+    </div>
+<script type="module">
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "./js/firebase.js";
+
+// LOGIN
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("Login successful!");
+        window.location.href = "index.html";
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+// SIGNUP
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+
+    try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Account created successfully!");
+        showTab(0);
+    } catch (error) {
+        alert(error.message);
+    }
+});
+</script>
+</body>
+</html>
