@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,185 +12,266 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-
-<!-- ================= NAVBAR ================= -->
 <header>
-    <h2>EVENT.COM</h2>
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#services">SERVICES</a>
-        <a href="#gallery">GALLERY</a>
-        <a href="#price">PRICE</a>
-        <a href="#review">REVIEW</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
+<h2>EVENT.COM</h2>
+<nav>
+<a href="#home">HOME</a>
+<a href="#about">ABOUT</a>
+<a href="#services">SERVICES</a>
+<a href="#gallery">GALLERY</a>
+<a href="#price">PRICE</a>
+<a href="#review">REVIEW</a>
+<a href="#contact">CONTACT</a>
+</nav>
 </header>
 
-<!-- ================= HERO ================= -->
 <section id="home" class="hero">
-    <h3>LET'S PLAN EVENT</h3>
-    <h1>LET'S ORGANIZE EVENTS WITH US ❤</h1>
-
-    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
-        START PLANNING
-    </button>
+<h3>LET'S PLAN EVENT</h3>
+<h1>LET'S ORGANIZE EVENTS WITH US ❤</h1>
+<button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" 
+style="background:#ff2d86;color:white;padding:16px 40px;border:none;border-radius:9999px;font-size:22px;margin-top:30px;cursor:pointer;">
+START PLANNING
+</button>
 </section>
 
-<!-- ================= ABOUT ================= -->
 <section id="about">
-    <h2>ABOUT US</h2>
-    <div class="about-box">
-        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622">
-
-        <div>
-            <h3>Know Us</h3>
-            <p>
-                We organize weddings, birthdays and corporate events with professional planning and decoration.
-                Our experienced team focuses on creativity, proper management and customer satisfaction.
-                We believe every event should be special and memorable for our clients.
-            </p>
-        </div>
-    </div>
+<h2>ABOUT US</h2>
+<div class="about-box">
+<img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622">
+<div>
+<h3>Know Us</h3>
+<p>We organize weddings, birthdays and corporate events with professional planning and decoration. Our experienced team focuses on creativity, proper management and customer satisfaction. We believe every event should be special and memorable for our clients.</p>
+</div>
+</div>
 </section>
 
-<!-- ================= SERVICES ================= -->
 <section id="services">
-    <h2>SERVICES</h2>
-
-    <div class="service-box">
-
-        <div class="card">
-            <div class="card-front">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-                <h3>Wedding Event</h3>
-            </div>
-            <div class="card-back">
-                <p>Beautiful wedding planning with decoration and stage setup.</p>
-                <div onclick="selectService('Wedding')" class="plan-btn">Plan This Event</div>
-            </div>
+<h2>SERVICES</h2>
+<div class="service-box">
+    <div class="card">
+        <div class="card-front"><img src="https://images.unsplash.com/photo-1519741497674-611481863552"><h3>Wedding Event</h3></div>
+        <div class="card-back">
+            <p>Beautiful wedding planning with decoration and stage setup.</p>
+            <div onclick="selectService('Wedding')" class="plan-btn">Plan This Event</div>
         </div>
-
-        <div class="card">
-            <div class="card-front">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
-                <h3>Birthday Party</h3>
-            </div>
-            <div class="card-back">
-                <p>Creative birthday themes with balloons and fun activities.</p>
-                <div onclick="selectService('Birthday')" class="plan-btn">Plan This Event</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-front">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
-                <h3>Corporate Event</h3>
-            </div>
-            <div class="card-back">
-                <p>Professional meetings and company celebrations.</p>
-                <div onclick="selectService('Corporate')" class="plan-btn">Plan This Event</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-front">
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
-                <h3>Concert Event</h3>
-            </div>
-            <div class="card-back">
-                <p>Music concerts with sound system and lighting.</p>
-                <div onclick="selectService('Concert')" class="plan-btn">Plan This Event</div>
-            </div>
-        </div>
-
     </div>
+    <div class="card">
+        <div class="card-front"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3"><h3>Birthday Party</h3></div>
+        <div class="card-back">
+            <p>Creative birthday themes with balloons and fun activities.</p>
+            <div onclick="selectService('Birthday')" class="plan-btn">Plan This Event</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-front"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce"><h3>Corporate Event</h3></div>
+        <div class="card-back">
+            <p>Professional meetings and company celebrations.</p>
+            <div onclick="selectService('Corporate')" class="plan-btn">Plan This Event</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-front"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30"><h3>Concert Event</h3></div>
+        <div class="card-back">
+            <p>Music concerts with sound system and lighting.</p>
+            <div onclick="selectService('Concert')" class="plan-btn">Plan This Event</div>
+        </div>
+    </div>
+</div>
 </section>
 
-<!-- ================= GALLERY ================= -->
+<!-- Gallery -->
 <section id="gallery">
     <h2>Gallery</h2>
-
     <div class="scroll-track">
         <div class="scroll-content">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-            <img src="https://images.unsplash.com/photo-1606800052052-a08f8b3b3a8e">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
-            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3">
         </div>
     </div>
-
+    <div class="scroll-track reverse" style="margin-top:40px;">
+        <div class="scroll-content">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30">
+        </div>
+    </div>
 </section>
 
-<!-- ================= PRICE ================= -->
+<!-- Price Calculator -->
 <section id="price" class="calculator-container">
     <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-[#ff2d86]">
-            INSTANT PRICE CALCULATOR
-        </h2>
-
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#ff2d86]">INSTANT PRICE CALCULATOR</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
             <div class="bg-white p-8 rounded-3xl shadow-xl">
-
-                <label>Event Type</label>
-                <select id="eventType">
-                    <option value="50000">Wedding</option>
-                    <option value="25000">Birthday</option>
-                    <option value="40000">Corporate</option>
-                </select>
-
-                <label>Guests</label>
-                <input type="range" id="guests" min="20" max="500" value="100">
-
-                <div>
-                    <label><input type="checkbox" class="addon" data-price="15000"> Decor</label>
-                    <label><input type="checkbox" class="addon" data-price="20000"> DJ</label>
+                <div class="space-y-8">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Event Type</label>
+                        <select id="eventType" class="w-full p-4 border-2 border-[#ff2d86] rounded-2xl focus:border-[#ff2d86] text-lg">
+                            <option value="50000">Wedding (₹50,000 base)</option>
+                            <option value="25000">Birthday (₹25,000 base)</option>
+                            <option value="40000">Corporate (₹40,000 base)</option>
+                            <option value="30000">Anniversary (₹30,000 base)</option>
+                            <option value="20000">Baby Shower (₹20,000 base)</option>
+                            <option value="35000">Concert (₹35,000 base)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Number of Guests: <span id="guestCount" class="font-bold text-[#ff2d86]">100</span></label>
+                        <input type="range" id="guests" min="20" max="500" value="100" class="w-full accent-[#ff2d86]">
+                        <input type="number" id="guestsNumber" value="100" class="mt-3 w-24 p-3 border-2 border-[#ff2d86] rounded-2xl text-center">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Event Date</label>
+                        <input type="date" id="eventDate" class="w-full p-4 border-2 border-[#ff2d86] rounded-2xl text-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-4">Add-ons</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="addon w-5 h-5 accent-[#ff2d86]" data-price="15000"> Premium Decor</label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="addon w-5 h-5 accent-[#ff2d86]" data-price="20000"> Live Music/DJ</label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="addon w-5 h-5 accent-[#ff2d86]" data-price="18000"> Professional Photography</label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="addon w-5 h-5 accent-[#ff2d86]" data-price="12000"> Catering Upgrade</label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="addon w-5 h-5 accent-[#ff2d86]" data-price="8000"> LED Lighting</label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="addon w-5 h-5 accent-[#ff2d86]" data-price="5000"> Custom Cake</label>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
-            <div>
-                <h3>Your Estimate</h3>
-                <div id="breakdown"></div>
-                <h2 id="totalPrice">₹0</h2>
-
-                <button onclick="bookNow()">Book Now</button>
+            <div class="bg-gradient-to-br from-[#ffe4f0] to-white p-8 rounded-3xl shadow-xl border-2 border-[#ff2d86] flex flex-col">
+                <h3 class="text-2xl font-semibold mb-6 text-center text-[#ff2d86]">Your Event Estimate</h3>
+                <div id="breakdown" class="space-y-4 text-lg flex-1"></div>
+                <div class="mt-auto pt-8 border-t-2 border-[#ff2d86]">
+                    <div class="flex justify-between text-3xl font-bold"><span>Total</span><span id="totalPrice" class="text-[#ff2d86]">₹85,000</span></div>
+                    <p class="text-xs text-gray-500 text-center mt-2">*Prices are estimates. Final quote after discussion.</p>
+                </div>
+                <button onclick="bookNow()" class="mt-8 w-full bg-[#ff2d86] hover:bg-[#e02270] text-white py-5 rounded-2xl text-xl font-semibold transition">
+                    Book This Quote Now ❤️
+                </button>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact">
-    <h2>Contact Us</h2>
+<!-- Reviews -->
+<section id="review">
+    <h2>CLIENT REVIEWS</h2>
+    <div class="review-box">
+        <div class="review-card">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Chanchal">
+                <div>
+                    <h4 style="margin:0;">Chanchal Sehrawat</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>"The event planning was absolutely amazing! Everything was perfectly organized and beautifully decorated."</p>
+        </div>
 
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea placeholder="Your Message"></textarea>
+        <div class="review-card">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Aanchal">
+                <div>
+                    <h4 style="margin:0;">Aanchal Hooda</h4>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <p>"The birthday party was fantastic! All the guests loved the decoration and overall experience."</p>
+        </div>
 
-    <button onclick="sendToWhatsApp()">Send</button>
+        <div class="review-card">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Vasundara">
+                <div>
+                    <h4 style="margin:0;">Vasundara Mangla</h4>
+                    <div class="stars">★★★★☆</div>
+                </div>
+            </div>
+            <p>"Our wedding event was perfectly organised. The lighting, music, and management were top class!"</p>
+        </div>
+        <div class="review-card">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Rahul">
+        <div>
+            <h4 style="margin:0;">Rahul Malik</h4>
+            <div class="stars">★★★★★</div>
+        </div>
+    </div>
+    <p>"Amazing service! The decoration and management were top-notch. Highly recommended!"</p>
+</div>
+
+
 </section>
+<section id="contact" style="background:#f2d5b3;padding:80px 20px;text-align:center;">
 
-<!-- ================= CHATBOT ================= -->
+<h2 style="color:#ff2d86;font-size:36px;margin-bottom:30px;">Contact Us</h2>
+
+<div style="max-width:500px;margin:auto;background:white;padding:30px;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+
+<input type="text" placeholder="Your Name" style="width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:8px;"><br>
+
+<input type="email" placeholder="Your Email" style="width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:8px;"><br>
+
+<textarea placeholder="Your Message" rows="4" style="width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:8px;"></textarea><br>
+
+<button type="button" onclick="sendToWhatsApp()" 
+style="background:#ff2d86;color:white;padding:10px 20px;border:none;border-radius:20px;">
+Send Message
+</button>
+</div>
+
+<div style="margin-top:30px;">
+<p><b>Email:</b> event@gmail.com</p>
+<p><b>Phone:</b> 8708974075</p>
+</div>
+
+</section>
+<footer style="background:#ff2d86;color:white;text-align:center;padding:20px;">
+<p>© 2026 Event Planner</p>
+</footer>
+
+<!-- Floating Chatbot -->
 <div class="chat-float" onclick="toggleChat()">💬</div>
-
 <div id="chatModal" class="chat-modal">
     <div class="chat-header">
-        <span>Event Assistant</span>
-        <span onclick="toggleChat()">✕</span>
+        <div><strong>Event Assistant</strong><br><small>Always here to help ❤️</small></div>
+        <span onclick="toggleChat()" style="cursor:pointer;font-size:24px;">✕</span>
     </div>
-
-    <div id="chatBody" class="chat-body">
-        <div class="chat-message">Hi 👋 What event?</div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-message">Hi there! 👋 What kind of event are you planning?</div>
     </div>
-
     <div class="chat-footer">
-        <div onclick="selectOption('Wedding')" class="chat-option">Wedding</div>
-        <div onclick="selectOption('Birthday')" class="chat-option">Birthday</div>
+        <div onclick="selectOption('Wedding')" class="chat-option">Wedding 💍</div>
+        <div onclick="selectOption('Birthday')" class="chat-option">Birthday 🎉</div>
+        <div onclick="selectOption('Corporate')" class="chat-option">Corporate 💼</div>
+        <div onclick="selectOption('Baby Shower')" class="chat-option">Baby Shower 👶</div>
+    </div>
+</div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="booking-modal">
+    <div class="booking-form">
+        <h2 class="text-2xl font-bold text-center mb-6 text-[#ff2d86]">Complete Your Booking</h2>
+        <input type="text" id="name" placeholder="Full Name" class="w-full p-4 border-2 border-gray-300 rounded-2xl mb-4">
+        <input type="email" id="email" placeholder="Email Address" class="w-full p-4 border-2 border-gray-300 rounded-2xl mb-4">
+        <input type="tel" id="phone" placeholder="Phone Number" value="9876543210" class="w-full p-4 border-2 border-gray-300 rounded-2xl mb-4">
+        <textarea id="message" placeholder="Any special requests?" rows="4" class="w-full p-4 border-2 border-gray-300 rounded-2xl mb-6"></textarea>
+        
+        <div class="flex gap-4">
+            <button onclick="submitBooking()" class="flex-1 bg-[#ff2d86] text-white py-4 rounded-2xl font-semibold">Confirm Booking</button>
+            <button onclick="closeBookingModal()" class="flex-1 bg-gray-200 text-gray-700 py-4 rounded-2xl font-semibold">Cancel</button>
+        </div>
     </div>
 </div>
 
