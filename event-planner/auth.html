@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Sign Up - EVENT.COM</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    background: linear-gradient(135deg, #ff2d86, #f2d5b3);
+    font-family: Arial, sans-serif;
+}
+.auth-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+.tab-active {
+    border-bottom: 3px solid #ff2d86;
+    color: #ff2d86;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<div class="auth-card w-full max-w-md p-8">
+
+    <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-[#ff2d86]">EVENT.COM</h1>
+        <p class="text-gray-600 mt-2">Join us to plan beautiful events</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex border-b mb-6">
+        <button id="tab-login" class="tab-active flex-1 py-3 text-center">Login</button>
+        <button id="tab-signup" class="flex-1 py-3 text-center text-gray-500">Sign Up</button>
+    </div>
+
+    <!-- Login -->
+    <form id="loginForm" class="space-y-6">
+        <input type="email" id="loginEmail" placeholder="Email"
+            class="w-full px-4 py-3 border rounded-xl" required>
+        <input type="password" id="loginPassword" placeholder="Password"
+            class="w-full px-4 py-3 border rounded-xl" required>
+        <button class="w-full bg-[#ff2d86] text-white py-3 rounded-xl">
+            Login
+        </button>
+    </form>
+
+    <!-- Signup -->
+    <form id="signupForm" class="space-y-6 hidden">
+        <input type="text" id="signupName" placeholder="Full Name"
+            class="w-full px-4 py-3 border rounded-xl" required>
+        <input type="email" id="signupEmail" placeholder="Email"
+            class="w-full px-4 py-3 border rounded-xl" required>
+        <input type="password" id="signupPassword" placeholder="Password"
+            class="w-full px-4 py-3 border rounded-xl" required>
+        <button class="w-full bg-[#ff2d86] text-white py-3 rounded-xl">
+            Create Account
+        </button>
+    </form>
+
+</div>
+
+<!-- Firebase + JS -->
+<script type="module">
+
+// ✅ IMPORTS
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+// ✅ CONFIG
+const firebaseConfig = {
+  apiKey: "AIzaSyAqYibc_E7HVgidHQRl0tuOl5WRnne1mNQ",
+  authDomain: "event-planner-c7721.firebaseapp.com",
+  projectId: "event-planner-c7721",
+  storageBucket: "event-planner-c7721.firebasestorage.app",
+  messagingSenderId: "94353002450",
+  appId: "1:94353002450:web:6de3dfb2edf9d0521c820b"
+};
+
+// ✅ INIT
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// ✅ TAB SWITCH
+const tabLogin = document.getElementById('tab-login');
+const tabSignup = document.getElementById('tab-signup');
+
+tabLogin.onclick = () => {
+    loginForm.classList.remove('hidden');
+    signupForm.classList.add('hidden');
+
+    tabLogin.classList.add('tab-active');
+    tabSignup.classList.remove('tab-active');
+};
+
+tabSignup.onclick = () => {
+    signupForm.classList.remove('hidden');
+    loginForm.classList.add('hidden');
+
+    tabSignup.classList.add('tab-active');
+    tabLogin.classList.remove('tab-active');
+};
+
+// ✅ LOGIN
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("Login successful 🎉");
+        window.location.href = "index.html";
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+// ✅ SIGNUP
+signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+
+    try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Account created! Now login 👍");
+
+        signupForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+</script>
+
+</body>
+</html>
