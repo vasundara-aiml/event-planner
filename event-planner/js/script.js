@@ -91,62 +91,71 @@ function submitBooking() {
     closeBookingModal();
 }
 
-// ==================== CHATBOT ====================
+// ==================== IMPROVED CHATBOT ====================
+
 function toggleChat() {
     const modal = document.getElementById('chatModal');
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
 
-    modal.style.display =
-        modal.style.display === 'flex' ? 'none' : 'flex';
+    if (modal.style.display === 'flex' && document.getElementById('chatBody').children.length === 0) {
+        startNewChat();
+    }
 }
 
-function selectOption(eventType) {
+function startNewChat() {
     const body = document.getElementById('chatBody');
+    body.innerHTML = '';
 
-    const userMsg = document.createElement('div');
-    userMsg.style.textAlign = 'right';
-    userMsg.style.marginBottom = '12px';
-
-    userMsg.innerHTML = `
-        <div style="background:#f0f0f0;color:#333;
-        padding:12px 16px;border-radius:18px 18px 4px 18px;
-        display:inline-block;">
-        ${eventType}
-        </div>
-    `;
-
-    body.appendChild(userMsg);
+    addMessage("Hello! 👋<br>Welcome to EVENT.COM<br>How can I help you plan your perfect event today?", "bot");
 
     setTimeout(() => {
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-message';
-        botMsg.innerHTML =
-            `Great choice! Let's plan your ${eventType.toLowerCase()}.`;
-
-        body.appendChild(botMsg);
-        body.scrollTop = body.scrollHeight;
-    }, 400);
+        showOptions();
+    }, 800);
 }
 
-// Close chatbot when clicking outside
-document.addEventListener('click', function (e) {
-    const modal = document.getElementById('chatModal');
-    const button = document.querySelector('.chat-float');
+function addMessage(text, sender) {
+    const body = document.getElementById('chatBody');
+    const div = document.createElement('div');
+    div.className = sender === "bot" ? "chat-message bot" : "chat-message user";
+    div.innerHTML = text;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+}
 
-    if (modal && !modal.contains(e.target) && !button.contains(e.target)) {
-        modal.style.display = 'none';
+function showOptions() {
+    const footer = document.getElementById('chatFooter');
+    footer.innerHTML = `
+        <div onclick="chooseOption(1)" class="chat-option">🎉 What services do you offer?</div>
+        <div onclick="chooseOption(2)" class="chat-option">💰 Tell me about pricing</div>
+        <div onclick="chooseOption(3)" class="chat-option">📅 How do I book an event?</div>
+    `;
+}
+
+function chooseOption(num) {
+    let question = "";
+    let reply = "";
+
+    if (num === 1) {
+        question = "What services do you offer?";
+        reply = "We specialize in Wedding, Birthday, Corporate, Concert, Baby Shower, Anniversary and many more events! ✨";
+    } 
+    else if (num === 2) {
+        question = "Tell me about pricing";
+        reply = "Price depends on event type + number of guests + add-ons.<br>Try our Price Calculator on the homepage for instant estimate! 📊";
+    } 
+    else if (num === 3) {
+        question = "How do I book an event?";
+        reply = "Super easy!<br>1. Go to Services section<br>2. Click Book Now<br>3. Fill details & confirm<br>Our team will contact you shortly ❤️";
     }
-});
 
-// ==================== WHATSAPP ====================
-function sendToWhatsApp() {
-    const name = document.querySelector('input[placeholder="Your Name"]').value || "";
-    const email = document.querySelector('input[placeholder="Your Email"]').value || "";
-    const message = document.querySelector('textarea').value || "";
+    // Show user message
+    addMessage(question, "user");
 
-    const text = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-    );
-
-    const url = `https://wa.me/918708974075?text=${text}`;
-    window.open(url, "_blank");
+    // Show bot reply after short delay
+    setTimeout(() => {
+        addMessage(reply, "bot");
+        
+        // Show options again after reply
+        setTimeout(showOptions, 1000);
+    }, 700);
 }

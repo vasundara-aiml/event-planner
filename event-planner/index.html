@@ -16,13 +16,12 @@
 <h2>EVENT.COM</h2>
 <nav>
 <a href="#home">HOME</a>
-<a href="#about">ABOUT</a>
 <a href="#services">SERVICES</a>
 <a href="#gallery">GALLERY</a>
 <a href="#price">PRICE</a>
 <a href="#review">REVIEW</a>
 <a href="#contact">CONTACT</a>
-<a href="login.html">LOGIN</a>
+<a href="auth.html">LOGIN</a>
 </nav>
 </header>
 
@@ -34,17 +33,6 @@
 style="background:#ff2d86;color:white;padding:16px 40px;border:none;border-radius:9999px;font-size:22px;margin-top:30px;cursor:pointer;">
 START PLANNING
 </button>
-</section>
-
-<section id="about">
-<h2>ABOUT US</h2>
-<div class="about-box">
-<img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622">
-<div>
-<h3>Know Us</h3>
-<p>We organize weddings, birthdays and corporate events with professional planning and decoration. Our experienced team focuses on creativity, proper management and customer satisfaction. We believe every event should be special and memorable for our clients.</p>
-</div>
-</div>
 </section>
 
 <section id="services">
@@ -245,20 +233,19 @@ Send Message
 
 <!-- Floating Chatbot -->
 <div class="chat-float" onclick="toggleChat()">💬</div>
+
 <div id="chatModal" class="chat-modal">
     <div class="chat-header">
-        <div><strong>Event Assistant</strong><br><small>Always here to help ❤️</small></div>
-        <span onclick="toggleChat()" style="cursor:pointer;font-size:24px;">✕</span>
+        <div>
+            <strong>Event Assistant</strong><br>
+            <small>Online • Ready to help ❤️</small>
+        </div>
+        <span onclick="toggleChat()" style="cursor:pointer; font-size:24px;">✕</span>
     </div>
-    <div class="chat-body" id="chatBody">
-        <div class="chat-message">Hi there! 👋 What kind of event are you planning?</div>
-    </div>
-    <div class="chat-footer">
-        <div onclick="selectOption('Wedding')" class="chat-option">Wedding 💍</div>
-        <div onclick="selectOption('Birthday')" class="chat-option">Birthday 🎉</div>
-        <div onclick="selectOption('Corporate')" class="chat-option">Corporate 💼</div>
-        <div onclick="selectOption('Baby Shower')" class="chat-option">Baby Shower 👶</div>
-    </div>
+    
+    <div class="chat-body" id="chatBody"></div>
+    
+    <div class="chat-footer" id="chatFooter"></div>
 </div>
 
 <!-- Booking Modal -->
